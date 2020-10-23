@@ -5,8 +5,7 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/rifrocket/trait-console.svg?style=flat-square)](https://scrutinizer-ci.com/g/rifrocket/trait-console)
 [![Total Downloads](https://img.shields.io/packagist/dt/rifrocket/trait-console.svg?style=flat-square)](https://packagist.org/packages/rifrocket/trait-console)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
-
+Laravel does not provide the command to create Traits out of the box but Laravel does provide commands generation for almost all kinds of components. This package introduces the convenience of Laravel's artisan makes for trait generation.
 ## Installation
 
 You can install the package via composer:
@@ -14,22 +13,37 @@ You can install the package via composer:
 ```bash
 composer require rifrocket/trait-console
 ```
+### Registering the service provider
+For Laravel 5.4 and lower, add the following line to your config/app.php
+``` php
+Rifrocket\TraitConsole\TraitConsoleServiceProvider::class,
+```
 
 ## Usage
-
-``` php
-// Usage description here
+trait will be created in the App/Traits directory.
+```bash
+php artisan make:trait NameOfYourTrait
 ```
-
-### Testing
-
-``` bash
-composer test
+You may create traits in subdirectories to organize them as per your need 
+```bash
+php artisan make:trait Subdirectory/NameOfYourTrait
 ```
+trait will be created in the App/Traits/Subdirectory directory and namespaced appropriately.
 
-### Changelog
+### Arguments
+-b or --boot
+```bash
+php artisan make:trait NameOfYourTrait -b
+```
+Creates a trait with a boot method.
 
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+-s or --scope
+```bash
+php artisan make:trait NameOfYourTrait -s
+```
+Creates a trait with a scope method.
+
+
 
 ## Contributing
 
