@@ -14,6 +14,7 @@ class Traitconsole extends GeneratorCommand
      */
     protected $name = 'make:trait';
 
+
     /**
      * The console command description.
      *
@@ -79,8 +80,24 @@ class Traitconsole extends GeneratorCommand
      */
     protected function replaceTrait($stub, $name)
     {
-        $class = str_replace($this->getNamespace($name) . '\\', '', $name);
 
+        if ($this->option('boot')) {
+
+            $class = str_replace($this->getNamespace($name) . '\\', '', $name);
+            $bootMetod='boot'.$this->option('boot');
+            str_replace('DummyTrait', $class, $stub);
+            return str_replace('bootDummyMethod', $bootMetod, $stub);
+        }
+
+        if ($this->option('scope')) {
+
+            $class = str_replace($this->getNamespace($name) . '\\', '', $name);
+            $scopeMetod='scope'.$this->option('scope');
+            str_replace('DummyTrait', $class, $stub);
+            return str_replace('bootDummyMethod', $scopeMetod, $stub);
+        }
+
+        $class = str_replace($this->getNamespace($name) . '\\', '', $name);
         return str_replace('DummyTrait', $class, $stub);
     }
 
@@ -92,8 +109,9 @@ class Traitconsole extends GeneratorCommand
     protected function getOptions()
     {
         return [
-            ['boot', 'b', InputOption::VALUE_NONE, 'Indicates if the generated trait should contain an eloquent boot method'],
-            ['scope', 's', InputOption::VALUE_NONE, 'Indicates if the generated trait should contain an eloquent query scope']
+            ['boot', 'b', InputOption::VALUE_OPTIONAL, 'generated trait should contain an eloquent boot method','DummyMethod'],
+            ['scope', 's', InputOption::VALUE_OPTIONAL, 'generated trait should contain an eloquent query scope','DummyMethod']
         ];
     }
+
 }
