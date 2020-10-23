@@ -33,15 +33,15 @@ trait will be created in the App/Traits/Subdirectory directory and namespaced ap
 ### Arguments
 -b or --boot
 ```bash
-php artisan make:trait NameOfYourTrait -b
+php artisan make:trait NameOfYourTrait -b=MethodName
 ```
-Creates a trait with a boot method.
+Creates a trait with a boot method named bootMethodName.
 
 -s or --scope
 ```bash
-php artisan make:trait NameOfYourTrait -s
+php artisan make:trait NameOfYourTrait -s=MethodName
 ```
-Creates a trait with a scope method.
+Creates a trait with a scope method named scopeMethodName.
 
 
 
