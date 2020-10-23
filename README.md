@@ -1,4 +1,4 @@
-# Very short description of the package
+# about this package
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/rifrocket/trait-console.svg?style=flat-square)](https://packagist.org/packages/rifrocket/trait-console)
 [![Build Status](https://img.shields.io/travis/rifrocket/trait-console/master.svg?style=flat-square)](https://travis-ci.org/rifrocket/trait-console)
