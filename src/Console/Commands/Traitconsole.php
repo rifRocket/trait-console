@@ -36,11 +36,11 @@ class Traitconsole extends GeneratorCommand
      */
     protected function getStub()
     {
-        if ($this->option('boot')) {
+        if ($this->option('boot') != 'DummyMethod'){
             return __DIR__ . '/stubs/boot-trait.stub';
         }
 
-        if ($this->option('scope')) {
+        if ($this->option('scope')  != 'DummyMethod' ) {
             return __DIR__ . '/stubs/scope-trait.stub';
         }
 
@@ -81,20 +81,22 @@ class Traitconsole extends GeneratorCommand
     protected function replaceTrait($stub, $name)
     {
 
-        if ($this->option('boot')) {
+        if ($this->option('boot') != 'DummyMethod') {
+
 
             $class = str_replace($this->getNamespace($name) . '\\', '', $name);
             $bootMetod='boot'.$this->option('boot');
-            str_replace('DummyTrait', $class, $stub);
-            return str_replace('bootDummyMethod', $bootMetod, $stub);
+            $new = str_replace('DummyTrait', $class, $stub);
+            return str_replace('bootDummyMethod', $bootMetod, $new);
+
         }
 
-        if ($this->option('scope')) {
+        if ($this->option('scope') != 'DummyMethod') {
 
             $class = str_replace($this->getNamespace($name) . '\\', '', $name);
             $scopeMetod='scope'.$this->option('scope');
-            str_replace('DummyTrait', $class, $stub);
-            return str_replace('bootDummyMethod', $scopeMetod, $stub);
+            $new =str_replace('DummyTrait', $class, $stub);
+            return str_replace('scopeDummyMethod', $scopeMetod, $new);
         }
 
         $class = str_replace($this->getNamespace($name) . '\\', '', $name);
