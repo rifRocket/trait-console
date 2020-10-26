@@ -1,7 +1,6 @@
 # about this package
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/rifrocket/trait-console.svg?style=flat-square)](https://packagist.org/packages/rifrocket/trait-console)
-[![Build Status](https://img.shields.io/travis/rifrocket/trait-console/master.svg?style=flat-square)](https://travis-ci.org/rifrocket/trait-console)
 [![Quality Score](https://img.shields.io/scrutinizer/g/rifrocket/trait-console.svg?style=flat-square)](https://scrutinizer-ci.com/g/rifrocket/trait-console)
 [![Total Downloads](https://img.shields.io/packagist/dt/rifrocket/trait-console.svg?style=flat-square)](https://packagist.org/packages/rifrocket/trait-console)
 
